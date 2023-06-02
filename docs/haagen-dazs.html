@@ -1,12 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>haagen-dazs</title>
-</head>
-<body>
-    <div>你好</div>
-</body>
+  </head>
+  <body>
+    <div>
+      你好，剛剛都忘了自我介紹，我叫廷煥，後來同事吃完冰淇淋，覺得太好吃了，所以做了一支API來讓大家團購，可以請你幫我也訂一支嗎?
+    </div>
+    <div>我想要香草口味的</div>
+    <div>訂冰淇淋API</div>
+    <div>
+      [POST] https://my-json-server.typicode.com/s780609/JsonServer/haagen-dazs
+    </div>
+    <div>
+      <table style="border: 1px solid; display: collapse">
+        <thead>
+          <tr>
+            <th style="border: 1px solid">屬性</th>
+            <th style="border: 1px solid">說明</th>
+            <th style="border: 1px solid">型別</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="border: 1px solid">type</td>
+            <td style="border: 1px solid">口味</td>
+            <td style="border: 1px solid">string</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid">orderingPerson</td>
+            <td style="border: 1px solid">訂購人</td>
+            <td style="border: 1px solid">string</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <br />
+    <div>訂完之後，API應該會回應一個id給你</div>
+    <div>請把id填進這裡，並按下確定，這樣我才知道我訂的編號，感謝你幫忙😎</div>
+    <div>
+      id:
+      <input type="input" id="answer" />
+      <button onclick="checkAnswer()">確定</button>
+    </div>
+
+    <script>
+      function checkAnswer() {
+        const typed = document.getElementById("answer");
+
+        if (typed.value === "2") {
+          alert("感謝");
+        } else {
+          alert("這個id不對");
+        }
+      }
+    </script>
+  </body>
 </html>

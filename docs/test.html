@@ -7,8 +7,9 @@
     <title>Document</title>
     <style>
       .container {
-        color: #FFFFFF;
+        color: #ffffff;
         cursor: default;
+        display: none;
       }
     </style>
   </head>
@@ -18,7 +19,7 @@
       console.log("歡迎來到聯邦網通");
       console.log("🚀************🚀");
       console.log(
-        "很抱歉，由於同事在寫考題的時候，把HTML文字顏色弄錯了，可以請你幫我把它改回來嗎?"
+        "很抱歉，由於同事在寫考題的時候，把css文字顏色和顯示都弄錯了，可以請你幫我把它改回來嗎?"
       );
       console.log(
         "他的" + " %c css style class name " + "%c 叫做 " + "%c 'container'",
@@ -30,11 +31,19 @@
 
     <div class="container">
       <div>Welcome to UITC's test</div>
-      <br>
-      <div>因為同事跑去吃haagen-dazs冰淇淋，結果沒有把測試要用的登入頁面寫出來QQ</div>
-      <div>還好登入用的API已經好了，這個API會回傳登入後的測試頁面網址，在 "url" 這個屬性裡面，可以請你幫我把它找出來嗎?</div>
-      <div>登入用API: [GET] https://my-json-server.typicode.com/s780609/JsonServer/hrlogin</div>
-      <div>[QueryParameters]測試帳密: </div>
+      <br />
+      <div>
+        因為同事跑去吃haagen-dazs冰淇淋，結果沒有把測試要用的登入頁面寫出來QQ
+      </div>
+      <div>
+        還好登入用的API已經好了，這個API會回傳登入後的測試頁面網址，在 "url"
+        這個屬性裡面，可以請你幫我把它找出來嗎?
+      </div>
+      <div>登入用API:</div>
+      <div>
+        [GET] https://my-json-server.typicode.com/s780609/JsonServer/hrlogin
+      </div>
+      <div>[QueryParameters]測試帳密:</div>
       <div>test</div>
       <div>123456</div>
     </div>
