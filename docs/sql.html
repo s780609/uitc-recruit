@@ -33,7 +33,10 @@
             </div>
             <div>只要找到方法，就可以看到全部的人的資料</div>
             <div>你可以幫我找出那個人的員工編號嗎</div>
-            <div>PS: 員工編號都是三碼數字，比如說我的是001</div>
+            <div>
+              PS: 員工編號都是三碼數字，比如說我的是001，database 是用 SQL
+              server 2019
+            </div>
             <br />
             <div>
               錯誤姓名的員工編號:
@@ -74,8 +77,10 @@
         }
 
         if (
-          empNo.toUpperCase().includes("AND") &&
-          empNo.toUpperCase().replace("AND ", "").replace(/\s/g, "") === "1=1"
+          empNo.replace(/\s/g, "").includes("''") &&
+          empNo.toUpperCase().includes("' OR") &&
+          empNo.toUpperCase().includes("OR ") &&
+          empNo.includes(" 1=1")
         ) {
           return (
             <React.Fragment>
