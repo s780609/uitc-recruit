@@ -10,13 +10,14 @@
     <div>
       你好，剛剛都忘了自我介紹，我叫廷煥，後來同事吃完冰淇淋，覺得太好吃了，所以做了一支API來讓大家團購，可以請你幫我也訂一支嗎?
     </div>
-    <div>我想要香草口味的</div>
+    <div>我想要蘭姆葡萄口味的</div>
     <div>訂冰淇淋API</div>
     <div>
       [POST] https://my-json-server.typicode.com/s780609/JsonServer/haagen-dazs
     </div>
     <div>
-      <table style="border: 1px solid; display: collapse">
+      <div>BODY 說明</div>
+      <table style="border: 1px solid; border-collapse:collapse;">
         <thead>
           <tr>
             <th style="border: 1px solid">屬性</th>
@@ -53,6 +54,7 @@
 
         if (typed.value === "2") {
           alert("感謝");
+          window.location.href = "./sql.html";
         } else {
           alert("這個id不對");
         }

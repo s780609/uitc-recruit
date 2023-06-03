@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sql</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel" data-type="module">
+      import { employeeData } from "./data.js";
+
+      function App(props) {
+        const [empNo, setEmpNo] = React.useState("");
+        const [inputValue, setInputValue] = React.useState("001");
+        const [answer, setAnswer] = React.useState("001");
+
+        return (
+          <React.Fragment>
+            <div>
+              同事終於把要測試的頁面做好了，這是一個可以用 員工編號
+              查詢員工資料的頁面，可是他不小心KEY錯某個人的姓名，他的出生年月日是70/01/01
+            </div>
+            <div>
+              而且他還不小心把 input
+              的結果直接綁到sql敘述裡面的where條件，導致sql injection
+            </div>
+            <div>只要找到方法，就可以看到全部的人的資料</div>
+            <div>你可以幫我找出那個人的員工編號嗎</div>
+            <div>PS: 員工編號都是三碼數字，比如說我的是001</div>
+            <br />
+            <div>
+              錯誤姓名的員工編號:
+              <input
+                value={answer}
+                onChange={(e) => setAnswer(e.target.value)}
+              />
+              <button
+                onClick={() => {
+                  if (answer === "403") {
+                    alert("感謝幫忙");
+                    window.location.href = "./final.html";
+                  } else {
+                    alert("好像不是這個員編耶");
+                  }
+                }}
+              >
+                確定
+              </button>
+            </div>
+            <br />
+            <input
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+            />
+            <button onClick={(e) => setEmpNo(inputValue)}>查詢</button>
+            <div>資料:</div>
+            <EmployeeData empNo={empNo}></EmployeeData>
+          </React.Fragment>
+        );
+      }
+
+      function EmployeeData({ empNo }) {
+        const [empData, setEmpData] = React.useState(employeeData);
+
+        if (!empNo) {
+          return;
+        }
+
+        if (
+          empNo.toUpperCase().includes("AND") &&
+          empNo.toUpperCase().replace("AND ", "").replace(/\s/g, "") === "1=1"
+        ) {
+          return (
+            <React.Fragment>
+              {empData.map((x) => (
+                <React.Fragment>
+                  <div style={{ display: "flex" }}>
+                    <div>{x.empNo}</div>&nbsp;
+                    <div>{x.name}</div>&nbsp;
+                    <div>{x.birthday}</div>&nbsp;
+                  </div>
+                </React.Fragment>
+              ))}
+            </React.Fragment>
+          );
+        }
+
+        if (empNo) {
+          return (
+            <React.Fragment>
+              {empData
+                .filter((x) => x.empNo === empNo)
+                .map((x) => (
+                  <React.Fragment>
+                    <div style={{ display: "flex" }}>
+                      <div>{x.empNo}</div>&nbsp;
+                      <div>{x.name}</div>&nbsp;
+                      <div>{x.birthday}</div>&nbsp;
+                    </div>
+                  </React.Fragment>
+                ))}
+            </React.Fragment>
+          );
+        }
+      }
+
+      const root = document.getElementById("root");
+
+      const reactRoot = ReactDOM.createRoot(root);
+
+      reactRoot.render(<App children="Hello world"></App>);
+    </script>
+  </body>
+</html>
