@@ -76,9 +76,11 @@
           return;
         }
 
-        const regex = /'[0-9a-zA-Z\s]*'\s+[oO][rR]\s+1\s*=\s*1/g;
+        const regex = /'[0-9a-zA-Z\s]*'\s+[oO][rR]\s+(.*)\s*=\s*(.*)/g;
 
-        if (regex.test(empNo)) {
+        const matched = regex.exec(empNo);
+
+        if (matched && matched[0] && matched[1].trim() === matched[2].trim()) {
           return (
             <React.Fragment>
               {empData.map((x) => (
