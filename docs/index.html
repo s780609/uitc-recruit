@@ -26,7 +26,7 @@
       console.log("歡迎來到聯邦網通");
       console.log("🚀************🚀");
       console.log(
-        "很抱歉，由於同事在寫考題的時候，把css文字顏色和顯示都弄錯了，可以請你幫我把它改回來嗎? 應該要黑色的才對"
+        "很抱歉，由於同事在寫考題的時候，把css的文字顏色(color)和顯示(display)都弄錯了，可以請你幫我把它改回來嗎? color應該要黑色的才對"
       );
       console.log(
         "他的" + " %c css style class name " + "%c 叫做 " + "%c 'container'",
@@ -43,16 +43,17 @@
         因為同事跑去吃haagen-dazs冰淇淋，結果沒有把測試要用的登入頁面寫出來QQ
       </div>
       <div>
-        還好登入用的API已經好了，這個API會回傳登入後的測試頁面網址，在 "url"
+        還好登入用的API已經好了，這個API會回傳一個JSON，裡面包含登入後要轉址的測試頁面網址，在 "url"
         這個屬性裡面，可以請你幫我把它找出來嗎?
       </div>
+      <div>找出來後，就直接到那個測試頁面網址就好了</div>
       <div>登入用API:</div>
       <div>
         [GET] https://my-json-server.typicode.com/s780609/JsonServer/hrlogin
       </div>
-      <div>[QueryParameters]測試帳密:</div>
-      <div>test</div>
-      <div>123456</div>
+      <div>[Query Parameters] 測試帳密:</div>
+      <div>account: test</div>
+      <div>password: 123456</div>
     </div>
   </body>
 </html>
